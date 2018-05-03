@@ -10,3 +10,35 @@ implementations is not possible within the Spek model.
 The main purpose of this library is to provide users with a way
 to use JUnit rules in Spek because they need to. A good use case is
 having existing JUnit rules that cannot be easily re-written.
+
+## Usage
+
+### withGroupRules
+
+It will setup the provided Rules using **SpecBody.beforeGroup/SpecBody.afterGroup**. Example usage:
+```kotlin
+        val temporaryFolder = TemporaryFolder()
+        withGroupRules(temporaryFolder)
+        
+        describe("some description") {
+            on("an action") {
+                val folder = temporaryFolder.newFolder()
+                ...
+            }
+        }
+```
+
+### withTestRules
+ 
+It will setup the provided Rules using **SpecBody.beforeEachTest/SpecBody.afterEachTest**. Example usage:
+```kotlin
+        val temporaryFolder = TemporaryFolder()
+        withTestRules(temporaryFolder)
+        
+        describe("some description") {
+            on("an action") {
+                val folder = temporaryFolder.newFolder()
+                ...
+            }
+        }
+```
