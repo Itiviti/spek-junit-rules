@@ -37,15 +37,13 @@ bintray {
     pkg.apply {
         version.gpg.sign = true
         userOrg = "ullink"
-        repo = "generic"
+        repo = "maven"
         name = project.name
-        description = project.description
+        desc = project.description
         setLabels("junit", "test", "spek")
-        userOrg = "bintray_user"
         setLicenses("Apache-2.0")
         websiteUrl = "https://github.com/Ullink/${project.name}"
         vcsUrl = "https://github.com/Ullink/${project.name}"
         issueTrackerUrl = "https://github.com/Ullink/${project.name}/issues"
     }
 }
-
